@@ -1,4 +1,5 @@
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.event.ActionEvent;
@@ -18,11 +19,14 @@ public class BackgroundColor extends JFrame {
         // GUI LookAndFeel differs among platforms.
         // JButton's background color cannot be set on Mac GUI
         // "Metal" LookAndFeel is platform-independent
+        
+        /* uncomment this block for MAC
         try {
             UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
         } catch (Exception e) {
             e.printStackTrace();
         }
+        */
 
         yellowButton = new JButton("Yellow");
         blueButton = new JButton("Blue");
@@ -46,8 +50,8 @@ public class BackgroundColor extends JFrame {
 
         Container contentPane = getContentPane();
         canvas = new JPanel();
-        contentPane.add(canvas, "Center");
-        contentPane.add(buttonPanel, "North");
+        contentPane.add(canvas, BorderLayout.CENTER);
+        contentPane.add(buttonPanel, BorderLayout.NORTH);
     }
 
     class ButtonObserver implements ActionListener {
